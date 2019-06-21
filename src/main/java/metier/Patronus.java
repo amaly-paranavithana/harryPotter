@@ -1,8 +1,8 @@
 package metier;
 
 public enum Patronus {
-cygne("Cygne"), phénix("Phénix"), loutre("Loutre"), lièvre("Lièvre"), loup("Loup"), sanglier("Sanglier"),
-chat("Chat"), cerf("Cerf"), biche("Biche"), pie("Pie"), cheval("Cheval"), chien("Chien");
+Cygne("Cygne"), Phenix("PhÃ©nix"), Loutre("Loutre"), Lievre("LiÃ¨vre"), Loup("Loup"), Sanglier("Sanglier"),
+Chat("Chat"), Cerf("Cerf"), Biche("Biche"), Pie("Pie"), Cheval("Cheval"), Chien("Chien");
 	
 //Attribut
 	private String genre;

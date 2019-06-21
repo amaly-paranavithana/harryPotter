@@ -76,7 +76,7 @@ public class Baguette {
 //ToString
 	
 	public String toString() {
-		return "Baguette n°" + id + " : BOIS : " + bois + ", COEUR : " + coeur + ", TAILLE : " + taille;
+		return "Baguette nÂ°" + id + " : BOIS : " + bois + ", COEUR : " + coeur + ", TAILLE : " + taille;
 	}
 
 //Hashcode & Egals

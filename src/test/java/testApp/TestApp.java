@@ -8,18 +8,18 @@ import metier.*;
 public class TestApp {
 
 	public static void main(String[] args) {
-		//insertBaguette();
+		insertBaguette();
 		// selectBaguetteById();
 		// selectAllBaguette();
-		deleteBaguette();
+		//deleteBaguette();
 	}
 
 	static DaoBaguette daoB = new DaoBaguette();
 
 //N'affiche pas la valeur d l'enum
 	public static void insertBaguette() {
-		Baguette hG = new Baguette(Bois.vigne, Coeur.dragon, 27.3);
-		Baguette rH = new Baguette(Bois.chêne, Coeur.dragon, 40.0);
+		Baguette hG = new Baguette(Bois.valueOf("Vigne"), Coeur.valueOf("Dragon"), 27.3);
+		Baguette rH = new Baguette(Bois.valueOf("Chene"), Coeur.valueOf("Dragon"), 40.0);
 
 		daoB.insert(hG);
 		daoB.insert(rH);
