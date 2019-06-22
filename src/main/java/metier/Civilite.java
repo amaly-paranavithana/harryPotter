@@ -1,14 +1,14 @@
 package metier;
 
 public enum Civilite {
-	m("Monsieur"), mme("Madame"), autre("Autre"), nc("NC");
+	M("Monsieur"), MME("Madame"), AUTRE("Autre"), NC("NC");
 
 // Attribut
 	private String libelle;
 
 //Constructeur
-	private Civilite(String civilite) {
-		libelle = civilite;
+	private Civilite(String l) {
+		libelle = l;
 	}
 
 // Getter

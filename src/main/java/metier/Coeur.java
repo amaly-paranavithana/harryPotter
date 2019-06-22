@@ -2,24 +2,24 @@
 package metier;
 
 public enum Coeur {
-Cheveu("Cheveu de Vélane"), Corail("Corail"), Basilic("Corne de Basilic"),
-Serpent("Corne de Serpent Cornu"), Kelpy("Crin de Kelpy"), Licorne("Crin de Licorne"), 
-Sombral("Crin de Sombral"), Epine("Epine de monstre du Fleuve Blanc"),
-Flereur("Moustache de Fléreur"), Oiseau("Plume d'oiseau-tonnerre"),
-Phenix("Plume de Phénix"), Rougarou("Poil de Rougarou"), Troll ("Moustache de troll"),
-Womatou ("Poil de womatou"), Dictame ("Tige de Dictame"), Dragon("Ventricule de dragon"), 
-Snallygaster("Ventricule de Snallygaster");
+CHEVEUDEVELANE("Cheveu de Velane"), CORAIL("Corail"), BASILIC("Corne de Basilic"),
+SERPENT("Corne de Serpent Cornu"), KELPY("Crin de Kelpy"), LICORNE("Crin de Licorne"), 
+SOMBRAL("Crin de Sombral"), EPINE("Epine de monstre du Fleuve Blanc"),
+FLEREUR("Moustache de Flereur"), OISEAU("Plume d'oiseau-tonnerre"),
+PHENIX("Plume de Phenix"), ROUGAROU("Poil de Rougarou"), TROLL ("Moustache de troll"),
+WOMATOU ("Poil de womatou"), DICTAME ("Tige de Dictame"), DRAGON("Ventricule de dragon"), 
+SNALLYGASTER("Ventricule de Snallygaster");
 	
 //Attributs
 	private String materiau;
 	
 //Constructeur
-	private Coeur(String coeur) {
-		materiau = coeur;
+	private Coeur(String m) {
+		materiau = m;
 	}
 	
 //Getter
-	public String getCoeur() {
+	public String getMateriau() {
 		return materiau;
 	}
 }

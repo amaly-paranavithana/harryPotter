@@ -1,30 +1,30 @@
 package metier;
 
 public enum Bois {
-Acacia("Acacia"), Acajou("Acajou"), Amourette("Amourette"), Aubepine("Aubépine"),
-Aubepinedesmarais("Aubépine des marais"), Aulne("Aulne"),Bouleau("Bouleau"),
-Cedre("Cèdre"), Cerisier("Cerisier"), Charme("Charme"), Chataignier("Châtaignier"),
-Chene("Chêne"), Cheneblanc("Chêne blanc"), Chenerouge("Chêne rouge"),
-Cornouiller("Cornouiller"), Cypres("Cyprès"), Ebene("Ebène"), Epicea("Epicéa"),
-Erable("Erable"), Erableasucre("Erable à sucre"), Frene("Frêne"),
-Freneepineux("Frêne épineux"), Hetre("Hêtre"), Houx("Houx"), Boisdeif("If"),
-Laurier("Laurier"), Lierre("Lierre"), Meleze("Mélèze"), Melezelaricin("Mélèze Laricin"),
-Noisetier("Noisetier"), Noyer("Noyer"), Noyernoir("Noyer noir"), Orme("Orme"),
-Peuplier("Peuplier"), Pin("Pin"), Poirier("Poirier"), Pommier("Pommier"),
-Prunellier("Prunellier"), Rose("Rose"), Roseau("Roseau"), Sapin("Sapin"), Saule("Saule"),
-Sequoia("Séquoia"), Sorbier("Sorbier"), Sureau("Sureau"), Sycomore("Sycomore"),
-Tilleulargente("Tilleul argenté"), Tremble("Tremble"), Vigne("Vigne");  
+ACACIA("Acacia"), ACAJOU("Acajou"), AMOURETTE("Amourette"), AUBEPINE("Aub�pine"),
+AUBEPINEDESMARAIS("Aubepine des marais"), AULNE("Aulne"),BOULEAU("Bouleau"),
+CEDRE("Cedre"), CERISIER("Cerisier"), CHARME("Charme"), CHATAIGNIER("Chataignier"),
+CHENE("Chene"), CHENEBLANC("Chene blanc"), CHENEROUGE("Chene rouge"),
+CORNOUILLER("Cornouiller"), CYPRES("Cypres"), EBENE("Ebene"), EPICEA("Epicea"),
+ERABLE("Erable"), ERABLEASUCRE("Erable a sucre"), FRENE("Frene"),
+FRENEEPINEUX("Frene epineux"), HETRE("Hetre"), HOUX("Houx"), IF("If"),
+LAURIER("Laurier"), LIERRE("Lierre"), MELEZE("Meleze"), MELEZELARICIN("Meleze Laricin"),
+NOISETIER("Noisetier"), NOYER("Noyer"), NOYERNOIR("Noyer noir"), ORME("Orme"),
+PEUPLIER("Peuplier"), PIN("Pin"), POIRIER("Poirier"), POMMIER("Pommier"),
+PRUNELLIER("Prunellier"), ROSE("Rose"), ROSEAU("Roseau"), SAPIN("Sapin"), SAULE("Saule"),
+SEQUOIA("Sequoia"), SORBIER("Sorbier"), SUREAU("Sureau"), SYCOMORE("Sycomore"),
+TILLEULARGENTE("Tilleul argente"), TREMBLE("Tremble"), VIGNE("Vigne");  
 
 //Attribut
 	private String type;
 	
 //Constructeur
-	private Bois(String bois) {
-		type = bois;
+	private Bois(String t) {
+		type = t;
 	}
 	
 //Getter
-	public String getBois() {
+	public String getType() {
 		return type;
 	}
 }
