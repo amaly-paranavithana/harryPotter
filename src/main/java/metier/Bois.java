@@ -1,7 +1,7 @@
 package metier;
 
 public enum Bois {
-ACACIA("Acacia"), ACAJOU("Acajou"), AMOURETTE("Amourette"), AUBEPINE("Aubépine"),
+ACACIA("Acacia"), ACAJOU("Acajou"), AMOURETTE("Amourette"), AUBEPINE("Aubepine"),
 AUBEPINEDESMARAIS("Aubepine des marais"), AULNE("Aulne"),BOULEAU("Bouleau"),
 CEDRE("Cedre"), CERISIER("Cerisier"), CHARME("Charme"), CHATAIGNIER("Chataignier"),
 CHENE("Chene"), CHENEBLANC("Chene blanc"), CHENEROUGE("Chene rouge"),

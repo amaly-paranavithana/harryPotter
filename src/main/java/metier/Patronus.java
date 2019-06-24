@@ -1,20 +1,20 @@
 package metier;
 
 public enum Patronus {
-Cygne("Cygne"), Phenix("Phénix"), Loutre("Loutre"), Lievre("Lièvre"), Loup("Loup"), Sanglier("Sanglier"),
-Chat("Chat"), Cerf("Cerf"), Biche("Biche"), Pie("Pie"), Cheval("Cheval"), Chien("Chien");
+CYGNE("Cygne"), PHENIX("Phenix"), LOUTRE("Loutre"), LIEVRE("Lievre"), LOUP("Loup"), SANGLIER("Sanglier"),
+CHAT("Chat"), CERF("Cerf"), BICHE("Biche"), PIE("Pie"), CHEVAL("Cheval"), CHIEN("Chien");
 	
 //Attribut
-	private String genre;
+	private String forme;
 	
 //Construteur
-	private Patronus(String patronus) {
-		genre = patronus;
+	private Patronus(String f) {
+		forme = f;
 	}
 
 //Getter
-	public String getPatronus() {
-		return genre;
+	public String getForme() {
+		return forme;
 	}
 	
 }
