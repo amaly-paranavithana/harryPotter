@@ -13,10 +13,10 @@ public class Baguette {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name="Bois")
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	private Bois bois;
 	@Column(name="Coeur")
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	private Coeur coeur;
 	@Column(name="Taille")
 	private Double taille;
