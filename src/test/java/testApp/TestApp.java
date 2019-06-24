@@ -1,5 +1,7 @@
 package testApp;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 import dao.DaoBaguette;
@@ -37,6 +39,7 @@ public class TestApp {
 		System.out.println("BOIS : " + daoB.selectById(2).getBois().getType () + ", COEUR : " + daoB.selectById(2).getCoeur().getMateriau()
 				+ ", TAILLE : " + daoB.selectById(2).getTaille());
 	}
+	
 //OK
 	public static void selectAllBaguette() {
 		for (Baguette b : daoB.selectAll()) {
@@ -44,7 +47,7 @@ public class TestApp {
 		}
 	}
 
-//OK
+//A vérifier
 	public static void deleteBaguette() {
 		daoB.delete(daoB.selectById(3));
 	}
