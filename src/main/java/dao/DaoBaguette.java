@@ -56,30 +56,4 @@ public class DaoBaguette implements DaoGeneric<Baguette, Integer> {
 		em.getTransaction().commit();
 		em.close();
 	}
-
-//SelectByBois	
-	public Baguette selectWithBois(Integer id) {
-
-		EntityManagerFactory emf = Context.getInstance().getEmf();
-		EntityManager em =emf.createEntityManager();
-		
-		Query query = em.createNamedQuery("Baguette.findWithBois", Baguette.class);
-		query.setParameter("id", id);
-		Baguette b = (Baguette) query.getSingleResult();
-		em.close();
-		return b;
-	}
-
-//SelectByCoeur	
-	public Baguette selectWithCoeur(Integer id) {
-
-		EntityManagerFactory emf = Context.getInstance().getEmf();
-		EntityManager em = emf.createEntityManager();
-		
-		Query query = em.createNamedQuery("Baguette.findWithCoeur", Baguette.class);
-		query.setParameter("id", id);
-		Baguette b = (Baguette) query.getSingleResult();
-		em.close();
-		return b;
-	}
 }

@@ -14,18 +14,22 @@ public class Sorcier {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="")
+	@Column(name="civilite")
+	@Enumerated(EnumType.STRING)
 	private Civilite civilite;
 	@Column(name="Prenom")
 	private String prenom;
 	@Column(name="Nom")
 	private String nom;
-	@Column(name="Date de naissance")
+	@Column(name="naissance")
 	@Temporal(TemporalType.DATE)
-	private Date anniversaire;
+	private Date naissance;
+	@Enumerated(EnumType.STRING)
 	@Column(name="Patronus")
 	private Patronus patronus;
-	@Column(name="Baguette")
+	
+	@OneToOne
+	@JoinColumn(name="baguette_id")
 	private Baguette baguette;
 
 //Constructeur		
@@ -36,7 +40,7 @@ public class Sorcier {
 		this.civilite = civilite;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.anniversaire = anniversaire;
+		this.naissance = naissance;
 		this.patronus = patronus;
 	}
 
@@ -46,7 +50,7 @@ public class Sorcier {
 		this.civilite = civilite;
 		this.prenom = prenom;
 		this.nom = nom;
-		this.anniversaire = anniversaire;
+		this.naissance = naissance;
 		this.patronus = patronus;
 		this.baguette = baguette;
 	}
@@ -84,12 +88,12 @@ public class Sorcier {
 		this.nom = nom;
 	}
 
-	public Date getAnniversaire() {
-		return anniversaire;
+	public Date getNaissance() {
+		return naissance;
 	}
 
-	public void setAnniversaire(Date anniversaire) {
-		this.anniversaire = anniversaire;
+	public void setNaissance(Date naissance) {
+		this.naissance = naissance;
 	}
 
 	public Patronus getPatronus() {
@@ -110,15 +114,15 @@ public class Sorcier {
 	
 //ToString
 	public String toString() {
-		return "Sorcier (id : " + id + ". Civilite : " + civilite.getLibelle() + ", prenom : " + prenom + ", nom : " + nom
-				+ ", date de naissance : " + anniversaire + ", patronus : " + patronus.getForme() + ", baguette : " + baguette + "]";
+		return "Sorcier (id : " + id + ") : " + civilite.getLibelle() + " " + prenom + " " + nom
+				+ ". Né(e) le : " + naissance + ". Patronus : " + patronus.getForme() + ". Baguette : " + baguette + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((anniversaire == null) ? 0 : anniversaire.hashCode());
+		result = prime * result + ((naissance == null) ? 0 : naissance.hashCode());
 		result = prime * result + ((baguette == null) ? 0 : baguette.hashCode());
 		result = prime * result + ((civilite == null) ? 0 : civilite.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -137,10 +141,10 @@ public class Sorcier {
 		if (getClass() != obj.getClass())
 			return false;
 		Sorcier other = (Sorcier) obj;
-		if (anniversaire == null) {
-			if (other.anniversaire != null)
+		if (naissance == null) {
+			if (other.naissance != null)
 				return false;
-		} else if (!anniversaire.equals(other.anniversaire))
+		} else if (!naissance.equals(other.naissance))
 			return false;
 		if (baguette == null) {
 			if (other.baguette != null)
