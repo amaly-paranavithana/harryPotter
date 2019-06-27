@@ -6,34 +6,49 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE_SORCIER",discriminatorType=DiscriminatorType.STRING)
-@Table(name="sorciers")
+@DiscriminatorColumn(name = "TYPE_SORCIER", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "sorciers")
 public class Sorcier {
 
 //Attributs 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="civilite")
+	@Column(name = "civilite")
 	@Enumerated(EnumType.STRING)
 	private Civilite civilite;
-	@Column(name="Prenom")
+	@Column(name = "Prenom")
 	private String prenom;
-	@Column(name="Nom")
+	@Column(name = "Nom")
 	private String nom;
-	@Column(name="naissance")
+	@Column(name = "naissance")
 	@Temporal(TemporalType.DATE)
 	private Date naissance;
 	@Enumerated(EnumType.STRING)
-	@Column(name="Patronus")
+	@Column(name = "Patronus")
 	private Patronus patronus;
-	
+
 	@OneToOne
-	@JoinColumn(name="baguette_id")
+	@JoinColumn(name = "baguette_id")
 	private Baguette baguette;
 
 //Constructeur		
 	public Sorcier() {
+	}
+
+	public Sorcier(Civilite civilite, String prenom, String nom) {
+		super();
+		this.civilite = civilite;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
+
+	public Sorcier(Civilite civilite, String prenom, String nom, Patronus patronus) {
+		super();
+		this.civilite = civilite;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.patronus = patronus;
 	}
 
 	public Sorcier(Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus) {
@@ -111,11 +126,11 @@ public class Sorcier {
 	public void setBaguette(Baguette baguette) {
 		this.baguette = baguette;
 	}
-	
+
 //ToString
 	public String toString() {
-		return "Sorcier (id : " + id + ") : " + civilite.getLibelle() + " " + prenom + " " + nom
-				+ ". Né(e) le : " + naissance + ". Patronus : " + patronus.getForme() + ". Baguette : " + baguette + "]";
+		return "Sorcier (id : " + id + ") : " + civilite.getLibelle() + " " + prenom + " " + nom + ". Né(e) le : "
+				+ naissance + ". Patronus : " + patronus.getForme() + ". Baguette : " + baguette + "]";
 	}
 
 	@Override
@@ -171,5 +186,5 @@ public class Sorcier {
 		} else if (!prenom.equals(other.prenom))
 			return false;
 		return true;
-	}	
+	}
 }

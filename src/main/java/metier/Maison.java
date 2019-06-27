@@ -6,31 +6,43 @@ import javax.persistence.*;
 
 @Entity
 public class Maison {
-	
+
 //Attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
 	private String fantome;
-	
-	@OneToMany(mappedBy="maison")
+
+	@OneToMany(mappedBy = "maison")
 	private List<Qualite> qualites = new ArrayList();
-	
+
 	@OneToOne
 	private Professeur directeur;
-	
-	@OneToMany(mappedBy="maison")
+
+	@OneToMany(mappedBy = "maison")
 	private List<Eleve> eleves = new ArrayList();
-	
-	
-	
-	
+
 //Constructeur	
 	public Maison() {
-		
+
 	}
-	
+
+	public Maison(String nom, String fantome, Professeur directeur) {
+	super();
+	this.nom = nom;
+	this.fantome = fantome;
+	this.directeur = directeur;
+}
+
+	public Maison(String nom, String fantome, List<Qualite> qualites, Professeur directeur) {
+		super();
+		this.nom = nom;
+		this.fantome = fantome;
+		this.qualites = qualites;
+		this.directeur = directeur;
+	}
+
 	public Maison(Integer id, String nom, String fantome, List<Qualite> qualites, Professeur directeur,
 			List<Eleve> eleves) {
 		super();
@@ -41,49 +53,62 @@ public class Maison {
 		this.directeur = directeur;
 		this.eleves = eleves;
 	}
-	
+
 //Getters & Setters
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getFantome() {
 		return fantome;
 	}
+
 	public void setFantome(String fantome) {
 		this.fantome = fantome;
 	}
+
 	public List<Qualite> getQualites() {
 		return qualites;
 	}
+
 	public void setQualites(List<Qualite> qualites) {
 		this.qualites = qualites;
 	}
+
 	public Professeur getDirecteur() {
 		return directeur;
 	}
+
 	public void setDirecteur(Professeur directeur) {
 		this.directeur = directeur;
 	}
+
 	public List<Eleve> getEleves() {
 		return eleves;
 	}
+
 	public void setEleves(List<Eleve> eleves) {
 		this.eleves = eleves;
 	}
 	
+	
+
 //ToString
 	public String toString() {
 		return "Maison [id=" + id + ", nom=" + nom + ", fantome=" + fantome + ", qualites=" + qualites + ", directeur="
-				+ directeur + ", eleves=" + eleves + "]";
+				+ directeur.getNom() + ", eleves=" + eleves + "]";
 	}
 
 //Hashcode & Egals

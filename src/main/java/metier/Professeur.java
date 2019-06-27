@@ -18,6 +18,18 @@ public class Professeur extends Sorcier {
 		super();
 	}
 	
+	public Professeur(Civilite civilite, String prenom, String nom) {
+	super(civilite, prenom, nom);
+}
+
+	public Professeur(Civilite civilite, String prenom, String nom, Patronus patronus) {
+		super(civilite, prenom, nom, patronus);
+	}
+
+	public Professeur(Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus) {
+	super(civilite, prenom, nom, anniversaire, patronus);
+}
+
 	public Professeur(Integer id, Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus,
 			Baguette baguette, Matiere matiere) {
 		super(id, civilite, prenom, nom, anniversaire, patronus, baguette);
