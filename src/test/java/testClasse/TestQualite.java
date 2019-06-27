@@ -21,13 +21,23 @@ public class TestQualite {
 	// ok
 	public static void insertQualite() {
 
-		//Qualite g1 = new Qualite("Courage");
-		//Qualite g2 = new Qualite("Hardiesse");
+		Qualite g1 = new Qualite("Courage");
+		Qualite g2 = new Qualite("Hardiesse");
+		Qualite g3 = new Qualite("Force d'esprit");
+		
 		Qualite p1 = new Qualite ("Equilibre");
+		Qualite p2 = new Qualite("Loyaute");
+		Qualite p3 = new Qualite("Constance");
+		Qualite p4 = new Qualite("Patience");
+				
 		Qualite sd1 = new Qualite ("Sagesse");
+		Qualite sd2 = new Qualite("Discernement");
+		Qualite sd3 = new Qualite("Erudition");
+		Qualite sd4 = new Qualite("Curiosite");
+		
 		Qualite sp1 = new Qualite ("Malice");
-		// Force d'esprit. P = Equilibre, Loyaute, Constance, Patience. S = Sagesse,
-		// Discernement, Erudition, Curiosite. Sp = Malice, Adresse, Determination.
+		Qualite sp2 = new Qualite("Adresse");
+		Qualite sp3 = new Qualite("Determination");
 
 		daoQ.insert(p1);
 		daoQ.insert(sd1);

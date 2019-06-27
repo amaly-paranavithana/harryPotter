@@ -22,11 +22,21 @@ public class TestProfesseur {
 	// ok
 	public static void insertProfesseur() {
 
-		Professeur mM = new Professeur(Civilite.MME, "Minerva", "McGonagall", Patronus.CHAT);
-		Professeur sR = new Professeur(Civilite.M, "Severus", "Rogue", Patronus.BICHE);
-		Professeur fF = new Professeur(Civilite.M, "Filius", "Flitwick");
-		Professeur pC = new Professeur(Civilite.MME, "Pomora", "Chourave");
-
+		Professeur mM = new Professeur(Civilite.MME, "Minerva", "McGonagall", Patronus.CHAT);//4/10/1935 Metamorphose
+		Professeur sR = new Professeur(Civilite.M, "Severus", "Rogue", Patronus.BICHE);//09/01/1960 Potion
+		Professeur fF = new Professeur(Civilite.M, "Filius", "Flitwick");//Sortileges
+		Professeur pC = new Professeur(Civilite.MME, "Pomora", "Chourave");//15/05/1941 Botanique
+		Professeur chaB = new Professeur(Civilite.MME, "Charity", "Burbage");//Etude des Moldus
+		Professeur cB = new Professeur(Civilite.M, "Cuthbert", "Binns");//Histoire de la magie
+		Professeur rB = new Professeur(Civilite.MME, "Renee", "Bibine");//Vol
+		Professeur bB = new Professeur(Civilite.MME, "Bathsheda", "Babbling");//Etude des Runes
+		Professeur rL = new Professeur(Civilite.M, "Remus", "Lupin", Patronus.LOUP);//10/03/1960 . Défense contre les forces du Mal
+		Professeur aD = new Professeur(Civilite.M, "Albus", "Dumbledore", Patronus.PHENIX);//07/1881
+		Professeur aS = new Professeur(Civilite.MME, "Aurora", "Sinistra");//Astronomie
+		Professeur sT = new Professeur(Civilite.MME, "Sibylle", "Trelawney");//Divination
+		Professeur rH = new Professeur(Civilite.M, "Rubeus", "Hagrid");//Soins aux creatures magiques
+		Professeur sV = new Professeur(Civilite.MME, "Septima", "Vector");//Arithmancie
+		
 		daoP.insert(mM);
 		daoP.insert(sR);
 		daoP.insert(fF);
