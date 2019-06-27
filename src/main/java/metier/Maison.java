@@ -12,6 +12,7 @@ public class Maison {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
+	private Integer point;
 	private String fantome;
 
 	@OneToMany(mappedBy = "maison")

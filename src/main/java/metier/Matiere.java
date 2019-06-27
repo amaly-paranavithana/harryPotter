@@ -4,26 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+
 @Entity
 public class Matiere {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String intitule;
-	
+
 	@OneToOne
 	private Professeur professeur;
-	
-	@OneToMany(mappedBy="matiere")
+
+	@OneToMany(mappedBy = "matiere")
 	private List<Sort> sorts = new ArrayList();
-	
+
 	@ManyToMany
 	private List<Eleve> eleves;
-	
+
 //Constructeurs
 	public Matiere() {
 		super();
+	}
+
+	public Matiere(String intitule) {
+		super();
+		this.intitule = intitule;
+	}
+
+	public Matiere(String intitule, Professeur professeur) {
+		super();
+		this.intitule = intitule;
+		this.professeur = professeur;
 	}
 
 	public Matiere(Integer id, String intitule, Professeur professeur, List<Sort> sorts) {
