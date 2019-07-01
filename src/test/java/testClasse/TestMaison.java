@@ -8,9 +8,9 @@ public class TestMaison {
 
 	public static void main(String[] args) {
 		//insertMaison();
-		 selectMaisonById();
+		 //selectMaisonById();
 		//selectAllMaison();
-		// updateMaison();
+		 updateMaison();
 		// deleteMaison();
 	}
 
@@ -47,9 +47,9 @@ public class TestMaison {
 
 	// ok
 	public static void updateMaison() {
-		Maison g1 = daoM.selectById(1);
-		g1.setNom("Gryffondor");
-		daoM.update(g1);
+		Maison g = daoM.selectById(1);
+		g.setDirecteur(daoP.selectById(1));
+		daoM.update(g);
 		System.out.println(daoM.selectById(1));
 	}
 

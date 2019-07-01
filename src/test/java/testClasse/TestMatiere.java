@@ -2,12 +2,13 @@
 package testClasse;
 
 import dao.DaoMatiere;
+import dao.DaoProfesseur;
 import metier.Matiere;
 
 public class TestMatiere {
 
 	public static void main(String[] args) {
-		// insertMatiere();
+		insertMatiere();
 		// selectMatiereById();
 		// selectAllMatiere();
 		// updateMatiere();
@@ -15,6 +16,7 @@ public class TestMatiere {
 	}
 
 	static DaoMatiere daoMat = new DaoMatiere();
+	static DaoProfesseur daoP = new DaoProfesseur();
 
 	// ok
 	public static void insertMatiere() {
@@ -46,9 +48,6 @@ public class TestMatiere {
 		daoMat.insert(moldu);
 		daoMat.insert(rune);
 		daoMat.insert(soin);
-		
-//		System.out.println(hG);
-//		System.out.println(rH);
 
 	}
 
@@ -67,9 +66,9 @@ public class TestMatiere {
 
 	// ok
 	public static void updateMatiere() {
-		Matiere rH = daoMat.selectById(2);
-		rH.setCoeur(Coeur.SOMBRAL);
-		daoMat.update(rH);
+		Matiere m1 = daoMat.selectById(2);
+		m1.setProfesseur(daoP.selectById(1));
+		daoMat.update(m1);
 		System.out.println(daoMat.selectById(2));
 	}
 

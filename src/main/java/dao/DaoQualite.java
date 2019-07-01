@@ -62,5 +62,4 @@ public class DaoQualite implements DaoGeneric<Qualite, Integer> {
 		em.getTransaction().commit();
 		em.close();
 	}
-	}
 }

@@ -8,10 +8,10 @@ import metier.Qualite;
 public class TestQualite {
 
 	public static void main(String[] args) {
-		 //insertQualite();
+		 insertQualite();
 		// selectQualiteById();
 		// selectAllQualite();
-		 updateQualite();
+		 //updateQualite();
 		// deleteQualite();
 	}
 

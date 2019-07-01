@@ -10,10 +10,10 @@ import metier.*;
 public class TestProfesseur {
 
 	public static void main(String[] args) {
-		// insertProfesseur();
+		 insertProfesseur();
 		// selectProfesseurById();
 		// selectAllProfesseur();
-		updateProfesseur();
+		//updateProfesseur();
 		// deleteProfesseur();
 	}
 

@@ -8,11 +8,11 @@ import metier.Coeur;
 public class TestBaguette {
 
 	public static void main(String[] args) {
-		// insertBaguette();
+		insertBaguette();
 		// selectBaguetteById();
 		// selectAllBaguette();
 		// updateBaguette();
-		// deleteBaguette();
+		 //deleteBaguette();
 	}
 
 	static DaoBaguette daoB = new DaoBaguette();
