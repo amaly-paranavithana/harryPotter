@@ -8,8 +8,8 @@ public class TestMaison {
 
 	public static void main(String[] args) {
 		//insertMaison();
-		 //selectMaisonById();
-		selectAllMaison();
+		 selectMaisonById();
+		//selectAllMaison();
 		// updateMaison();
 		// deleteMaison();
 	}
@@ -34,7 +34,7 @@ public class TestMaison {
 	// ok
 	public static void selectMaisonById() {
 
-		System.out.println("Les maisons : "+ daoM.selectById(1).getNom() + ", " + daoM.selectById(1).getDirecteur().getNom());
+		System.out.println(daoM.selectById(1));
 
 	}
 
@@ -53,7 +53,7 @@ public class TestMaison {
 		System.out.println(daoM.selectById(1));
 	}
 
-	// A faire
+	//ok
 	public static void deleteMaison() {
 		daoM.delete(daoM.selectById(3));
 	}

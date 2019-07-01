@@ -2,13 +2,13 @@ package testClasse;
 
 import dao.DaoSort;
 import metier.Sort;
-import metier.TypeSort;
+import metier.InfoSort;
 
 public class TestSort {
 
 	public static void main(String[] args) {
-		// insertSort();
-		// selectSortById();
+		 //insertSort();
+		 selectSortById();
 		// selectAllSort();
 		// updateSort();
 		// deleteSort();
@@ -19,24 +19,21 @@ public class TestSort {
 	// ok
 	public static void insertSort() {
 
-		Sort accio = new Sort("accio", TypeSort.ENCHANTEMENT);
-		Sort avada = new Sort("avada kedavra", TypeSort.MALEDICTION);
+		Sort eau = new Sort("Sortilege d'eau", InfoSort.EAU, InfoSort.EAU);
+		Sort amnesie = new Sort("Sortilege d'amnesie", InfoSort.AMNESIE, InfoSort.AMNESIE);
 
-		daoS.insert(accio);
-		daoS.insert(avada);
-		System.out.println(accio);
-		System.out.println(avada);
+		daoS.insert(eau);
+		daoS.insert(amnesie);
+		System.out.println(eau);
+		System.out.println(amnesie);
 
 	}
 
-	// ok
+	// affiche null à la place de la formule et du type
 	public static void selectSortById() {
 
-		System.out.println(
-				"NOM : " + daoS.selectById(1).getNom() + ", TYPE : " + daoS.selectById(1).getTypeSort().getType());
-		System.out.println(
-				"NOM : " + daoS.selectById(2).getNom() + ", TYPE : " + daoS.selectById(2).getTypeSort().getType());
-
+		System.out.println(daoS.selectById(1));
+			//	"NOM : " + daoS.selectById(1).getNom() + ", FORMULE : " + daoS.selectById(1).getFormule().getFormule() + ", TYPE : " + daoS.selectById(1).getType().getType());
 	}
 
 	// ok
@@ -54,7 +51,7 @@ public class TestSort {
 		System.out.println(daoS.selectById(1));
 	}
 
-	// A faire
+	//ok
 	public static void deleteSort() {
 		daoS.delete(daoS.selectById(3));
 	}

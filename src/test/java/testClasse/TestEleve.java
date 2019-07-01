@@ -62,7 +62,7 @@ public class TestEleve {
 		System.out.println(daoE.selectById(2));
 	}
 
-	// A faire
+	//ok
 	public static void deleteEleve() {
 		daoE.delete(daoE.selectById(3));
 	}

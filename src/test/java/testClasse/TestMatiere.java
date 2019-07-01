@@ -33,22 +33,29 @@ public class TestMatiere {
 		Matiere rune = new Matiere("Etude des runes");//Babbling
 		Matiere soin = new Matiere("Soins aux créatures magiques");//Hagrid
 		
+		daoMat.insert(astro);
+		daoMat.insert(bota);
+		daoMat.insert(def);
+		daoMat.insert(histoire);
+		daoMat.insert(meta);
+		daoMat.insert(potion);
+		daoMat.insert(sortilege);
+		daoMat.insert(vol);
+		daoMat.insert(arit);
+		daoMat.insert(div);
+		daoMat.insert(moldu);
+		daoMat.insert(rune);
+		daoMat.insert(soin);
 		
-
-		daoMat.insert(hG);
-		daoMat.insert(rH);
-		System.out.println(hG);
-		System.out.println(rH);
+//		System.out.println(hG);
+//		System.out.println(rH);
 
 	}
 
 	// ok
 	public static void selectMatiereById() {
 
-		System.out.println("BOIS : " + daoMat.selectById(1).getBois().getType() + ", COEUR : "
-				+ daoMat.selectById(1).getCoeur().getMateriau() + ", TAILLE : " + daoMat.selectById(1).getTaille());
-		System.out.println("BOIS : " + daoMat.selectById(2).getBois().getType() + ", COEUR : "
-				+ daoMat.selectById(2).getCoeur().getMateriau() + ", TAILLE : " + daoMat.selectById(2).getTaille());
+		System.out.println(daoMat.selectById(1));
 	}
 
 	// ok
@@ -66,7 +73,7 @@ public class TestMatiere {
 		System.out.println(daoMat.selectById(2));
 	}
 
-	// A faire
+	//ok
 	public static void deleteMatiere() {
 		daoMat.delete(daoMat.selectById(3));
 	}

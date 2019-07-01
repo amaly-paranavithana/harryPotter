@@ -39,9 +39,10 @@ public class TestQualite {
 		Qualite sp2 = new Qualite("Adresse");
 		Qualite sp3 = new Qualite("Determination");
 
-		daoQ.insert(p1);
-		daoQ.insert(sd1);
-		daoQ.insert(sp1);
+		daoQ.insert(g1); daoQ.insert(g2); daoQ.insert(g3); daoQ.insert(p1); daoQ.insert(p2);
+		daoQ.insert(p3); daoQ.insert(p4); daoQ.insert(sd1); daoQ.insert(sd2); daoQ.insert(sd3);
+		daoQ.insert(sd4); daoQ.insert(sp1); daoQ.insert(sp2); daoQ.insert(sp3); 
+		
 		//System.out.println(g1);
 		//System.out.println(g2);
 
@@ -70,7 +71,7 @@ public class TestQualite {
 		System.out.println(daoQ.selectById(1));
 	}
 
-	// A faire
+	//ok
 	public static void deleteQualite() {
 		daoQ.delete(daoQ.selectById(3));
 	}

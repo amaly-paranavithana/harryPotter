@@ -40,20 +40,18 @@ public class TestBaguette {
 		Baguette rW = new Baguette(Bois.SAULE, Coeur.LICORNE, 35.56);//james
 		
 
-		daoB.insert(hG);
-		daoB.insert(rH);
-		System.out.println(hG);
-		System.out.println(rH);
+		daoB.insert(hG);daoB.insert(rH); daoB.insert(mM);daoB.insert(rL); daoB.insert(sT);daoB.insert(aD);
+		daoB.insert(cD);daoB.insert(tJ); daoB.insert(nL);daoB.insert(dM); daoB.insert(pP);daoB.insert(lP);
+		daoB.insert(jP);daoB.insert(gW); daoB.insert(hP);daoB.insert(cW); daoB.insert(rW);
+		
+		//System.out.println(hG);
 
 	}
 
 	// ok
 	public static void selectBaguetteById() {
-
-		System.out.println("BOIS : " + daoB.selectById(1).getBois().getType() + ", COEUR : "
-				+ daoB.selectById(1).getCoeur().getMateriau() + ", TAILLE : " + daoB.selectById(1).getTaille());
-		System.out.println("BOIS : " + daoB.selectById(2).getBois().getType() + ", COEUR : "
-				+ daoB.selectById(2).getCoeur().getMateriau() + ", TAILLE : " + daoB.selectById(2).getTaille());
+	
+		System.out.println(daoB.selectById(1));
 	}
 
 	// ok
@@ -71,9 +69,9 @@ public class TestBaguette {
 		System.out.println(daoB.selectById(2));
 	}
 
-	// A faire
+	//ok
 	public static void deleteBaguette() {
-		daoB.delete(daoB.selectById(3));
+		daoB.delete(daoB.selectById(1));
 	}
 
 }
