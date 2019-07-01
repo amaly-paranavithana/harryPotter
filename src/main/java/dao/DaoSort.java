@@ -51,7 +51,13 @@ public class DaoSort implements DaoGeneric<Sort, Integer> {
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
-		em.remove(object);
+
+		if (em.contains(object)) {
+			em.remove(object);
+		} else {
+			em.remove(em.merge(object));
+		}
+
 		em.getTransaction().commit();
 		em.close();
 	}

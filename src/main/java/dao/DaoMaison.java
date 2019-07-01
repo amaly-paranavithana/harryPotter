@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 import javax.persistence.*;
 import application.Context;
+import metier.Baguette;
 import metier.Maison;
 
 public class DaoMaison implements DaoGeneric<Maison, Integer> {
@@ -51,7 +52,13 @@ public class DaoMaison implements DaoGeneric<Maison, Integer> {
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
-		em.remove(object);
+
+		if (em.contains(object)) {
+			em.remove(object);
+		} else {
+			em.remove(em.merge(object));
+		}
+
 		em.getTransaction().commit();
 		em.close();
 	}

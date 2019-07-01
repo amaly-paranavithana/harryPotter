@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 import javax.persistence.*;
 import application.Context;
+import metier.Baguette;
 import metier.Qualite;
 
 public class DaoQualite implements DaoGeneric<Qualite, Integer> {
@@ -51,8 +52,15 @@ public class DaoQualite implements DaoGeneric<Qualite, Integer> {
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
-		em.remove(object);
+
+		if (em.contains(object)) {
+			em.remove(object);
+		} else {
+			em.remove(em.merge(object));
+		}
+
 		em.getTransaction().commit();
 		em.close();
+	}
 	}
 }
