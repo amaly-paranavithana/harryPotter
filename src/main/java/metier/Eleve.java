@@ -9,17 +9,29 @@ import javax.persistence.*;
 public class Eleve extends Sorcier {
 
 //Attributs
-	
+
 	@ManyToOne
 	Maison maison;
 	private Boolean quidditch;
-	
-	@ManyToMany(mappedBy="eleves")
+
+	@ManyToMany(mappedBy = "eleves")
 	private List<Matiere> matieres = new ArrayList();
 
 //Constructeurs	
 	public Eleve() {
 
+	}
+	
+	public Eleve(Civilite civilite, String prenom, String nom, Maison maison) {
+		super(civilite, prenom, nom);
+		this.maison = maison;
+	}
+
+
+	public Eleve(Civilite civilite, String prenom, String nom, Maison maison, Boolean quidditch) {
+		super(civilite, prenom, nom);
+		this.maison = maison;
+		this.quidditch = quidditch;
 	}
 
 	public Eleve(Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus, Maison maison,
@@ -64,9 +76,9 @@ public class Eleve extends Sorcier {
 
 // ToString	@
 	public String toString() {
-		return getCivilite().getLibelle() + " " + getNom().toUpperCase() + " " + getPrenom() 
-		+ " : Né(e) le : " + getNaissance() + ". Patronus : " + getPatronus().getForme() +
-		". \nBaguette : " + getBaguette() + ".\nAppatient à la maison " + maison + ". Joueur de quidditch : " + quidditch;
+		return getCivilite().getLibelle() + " " + getNom().toUpperCase() + " " + getPrenom() + " : Né(e) le : "
+				+ getNaissance() + ". Patronus : " + getPatronus().getForme() + ". \nBaguette : " + getBaguette()
+				+ ".\nAppatient à la maison " + maison + ". Joueur de quidditch : " + quidditch;
 	}
 
 // Hashcode & Equals
@@ -103,5 +115,5 @@ public class Eleve extends Sorcier {
 		} else if (!quidditch.equals(other.quidditch))
 			return false;
 		return true;
-	}	
+	}
 }
