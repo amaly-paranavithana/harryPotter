@@ -2,6 +2,7 @@ package testClasse;
 
 import dao.DaoMaison;
 import dao.DaoProfesseur;
+import metier.Blason;
 import metier.Maison;
 
 public class TestMaison {
@@ -20,10 +21,10 @@ public class TestMaison {
 	// ok
 	public static void insertMaison() {
 
-		Maison g = new Maison ("Gryffondor", "Nick Quasi-Sans-Tete", daoP.selectById(1));
-		Maison sd = new Maison ("Serdaigle", "La Dame Grise", daoP.selectById(3));
-		Maison p = new Maison ("Poufsouffle", "Le Moine Gras", daoP.selectById(4));
-		Maison sp = new Maison ("Serpentard", "Le Baron Sanglant", daoP.selectById(2));
+		Maison g = new Maison ("Gryffondor", Blason.GRYFFONDOR, daoP.selectById(1),  "Nick Quasi-Sans-Tete");
+		Maison sd = new Maison ("Serdaigle", Blason.SERDAIGLE, daoP.selectById(3), "La Dame Grise");
+		Maison p = new Maison ("Poufsouffle", Blason.POUFSOUFFLE, daoP.selectById(4), "Le Moine Gras");
+		Maison sp = new Maison ("Serpentard", Blason.SERPENTARD, daoP.selectById(2), "Le Baron Sanglant");
 		daoM.insert(g);
 		daoM.insert(sd);
 		daoM.insert(p);
