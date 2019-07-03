@@ -184,12 +184,12 @@ public class TestApp {
 
 	private static void ajoutProf() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void modifierProf() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void menuAutreSorcier() {
@@ -221,27 +221,62 @@ public class TestApp {
 
 	private static void ajoutSorcier() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void modifierSorcier() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void supprimerSorcier() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public static void menuMaison() {
+		System.out.println(
+				"1. Ajouter une maison \n2. Conculter une maison \n3. Modifier une maison \n4. Revenir a la premiere carte\n5. Mefait accompli");
+		switch (clavierInt.nextInt()) {
+		case 1:
+			ajoutMaison();
+			menuMaison();
+			break;
+		case 2:
+			consulterMaison();
+			menuMaison();
+			break;
+		case 3:
+			modifierMaison();
+			menuMaison();
+			break;
+		case 4:
+			menu();
+			break;
+		case 5:
+			//Terminer
+			break;
+		}
+	}
+
+	private static void ajoutMaison() {
 		// TODO Auto-generated method stub
 
 	}
 
-	public static void menuMatiere() {
+	private static void consulterMaison() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private static void modifierMaison() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void menuMatiere() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
