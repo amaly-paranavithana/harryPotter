@@ -3,7 +3,7 @@ package dao;
 import java.util.List;
 import javax.persistence.*;
 import application.Context;
-import metier.*;
+import metier.Sort;
 
 public class DaoSort implements DaoGeneric<Sort, Integer> {
 

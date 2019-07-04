@@ -4,7 +4,6 @@ import java.util.List;
 import javax.persistence.*;
 import application.Context;
 import metier.Baguette;
-import metier.Eleve;
 
 public class DaoBaguette implements DaoGeneric<Baguette, Integer> {
 
