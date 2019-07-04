@@ -1,24 +1,34 @@
 package testApp;
 
+import java.util.Date;
 import java.util.EnumSet;
 import java.util.Scanner;
 
+import dao.DaoBaguette;
+import dao.DaoEleve;
+import dao.DaoSorcier;
 import metier.Baguette;
 import metier.Bois;
+import metier.Civilite;
 import metier.Coeur;
-import dao.DaoBaguette;
+import metier.Eleve;
+import metier.Patronus;
+import metier.Sorcier;
 
 public class TestApp {
 
 	public static void main(String[] args) {
-		menuBaguette();
+		ajoutEleve();
 	}
 
 	static DaoBaguette daoB = new DaoBaguette();
+	static DaoSorcier daoSorc = new DaoSorcier();
+	static DaoEleve daoE = new DaoEleve();
 
 	static Scanner clavierStr = new Scanner(System.in);
 	static Scanner clavierInt = new Scanner(System.in);
 	static Scanner clavierDb = new Scanner(System.in);
+	static Scanner clavierDate = new Scanner(System.in);
 
 //faire un try catch pour la saisie d'un int
 
@@ -93,9 +103,10 @@ public class TestApp {
 		}
 	}
 
+//Fini!!!!
 	private static void menuBaguette() {
 		System.out.println(
-				"1. Consulter la carte recensant toutes les baguettes existantes \n2. Créer une baguette \n3. Modifier une baguette \n4. Laisser une baguette choisir son sorcier \n5. Detruire une baguette \n6. Carte de gestion d'un sorcier \n7. Revenir a la premiere carte \n8. Méfait accompli");
+				"\n1. Consulter la carte recensant toutes les baguettes existantes \n2. Créer une baguette \n3. Modifier une baguette \n4. Laisser une baguette choisir son sorcier \n5. Detruire une baguette \n6. Carte de gestion d'un sorcier \n7. Revenir a la premiere carte \n8. Méfait accompli");
 		switch (clavierInt.nextInt()) {
 		case 1:
 			annuaireBaguette();
@@ -106,7 +117,7 @@ public class TestApp {
 			menuBaguette();
 			break;
 		case 3:
-			modifierBaguette();
+			choisirBaguette();
 			menuBaguette();
 			break;
 		case 4:
@@ -153,7 +164,7 @@ public class TestApp {
 
 	}
 
-	private static void modifierBaguette() {
+	private static void choisirBaguette() {
 
 		for (Baguette b : daoB.selectAll()) {
 			System.out.println(b);
@@ -162,44 +173,97 @@ public class TestApp {
 		Integer choix1 = clavierInt.nextInt();
 
 		Baguette b = daoB.selectById(choix1);
+		System.out.println("\nCette baguette est en bois de " + b.getBois().getType() + " avec un coeur en "
+				+ b.getCoeur().getMateriau() + ". Elle mesure " + b.getTaille() + " cm.");
+		modifierBaguette(b);
+		System.out.println("Tu as réussi !!! Voici la baguette obtenue : \n" + b.toString() + "\n");
 
-		
+	}
 
-		do {
-			System.out.println("\nCette baguette est en bois de " + b.getBois().getType() + " avec un coeur en "
-					+ b.getCoeur().getMateriau() + ". Elle mesure " + b.getTaille()
-					+ " cm. \nSur quelle modification veux-tu travailler?? \n1. Son bois \n2. Son coeur \n3. Sa taille \n4. J'ai fini, voir les caracteristiques de la nouvelle baguette");
+	private static Baguette modifierBaguette(Baguette b) {
+		System.out.println(
+				"Sur quelle modification veux-tu travailler?? \n1. Son bois \n2. Son coeur \n3. Sa taille \n4. J'ai fini, voir les caracteristiques de la nouvelle baguette");
 
-			switch (clavierInt.nextInt()) {
-			case 1:
-				System.out.println("Choisis le type de bois a utiliser : \n" + EnumSet.allOf(Bois.class));
-				String type = clavierStr.nextLine().toUpperCase();
-				b.setBois(Bois.valueOf(type));
-				break;
-			case 2:
-				System.out.println("Choisis le materiau de coeur a utiliser : \n" + EnumSet.allOf(Coeur.class));
-				String materiau = clavierStr.nextLine().toUpperCase();
-				b.setCoeur(Coeur.valueOf(materiau));
-				break;
-			case 3:
-				System.out.println("Quelle taille veux-tu lui donner?");
-				Double taille = clavierDb.nextDouble();
-				b.setTaille(taille);
-				break;
-			}
-		} while (clavierInt.nextInt() != 4);
+		switch (clavierInt.nextInt()) {
+		case 1:
+			modifierBois(b);
+			modifierBaguette(b);
+			break;
+		case 2:
+			modifierCoeur(b);
+			modifierBaguette(b);
 
-		System.out.println("Tu as réussi !!! Voici la baguette obtenue : \n" + b.toString());
+			break;
+		case 3:
+			modifierTaille(b);
+			modifierBaguette(b);
+			break;
+		case 4:
+			return b;
+		}
+		return null;
+
+	}
+
+	private static Baguette modifierBois(Baguette b) {
+		System.out.println("Choisis le type de bois a utiliser : \n" + EnumSet.allOf(Bois.class));
+		String type = clavierStr.nextLine().toUpperCase();
+		b.setBois(Bois.valueOf(type));
+		daoB.update(b);
+		return b;
+	}
+
+	private static Baguette modifierCoeur(Baguette b) {
+		System.out.println("Choisis le materiau de coeur a utiliser : \n" + EnumSet.allOf(Coeur.class));
+		String materiau = clavierStr.nextLine().toUpperCase();
+		b.setCoeur(Coeur.valueOf(materiau));
+		daoB.update(b);
+		return b;
+	}
+
+	private static Baguette modifierTaille(Baguette b) {
+		System.out.println("Quelle taille veux-tu lui donner?");
+		Double taille = clavierDb.nextDouble();
+		b.setTaille(taille);
+		daoB.update(b);
+		return b;
 
 	}
 
 	private static void assignerBaguette() {
+		for (Baguette b : daoB.selectAll()) {
+			System.out.println(b);
+		}
+		System.out.println("\nChoisis l'id d'une baguette à la recherche d'un sorcier : ");
+		Integer choixB = clavierInt.nextInt();
+
+		Baguette b = daoB.selectById(choixB);
+
+		for (Sorcier s : daoSorc.selectAll()) {
+			System.out.println("Sorcier (id : " + s.getId() + ") : " + s.getCivilite().getLibelle() + " "
+					+ s.getPrenom() + " " + s.getNom());
+		}
+		System.out.println("\nChoisis l'id dur sorcier recherché : \n");
+		Integer choixS = clavierInt.nextInt();
+
+		Sorcier s = daoSorc.selectById(choixS);
+
+		s.setBaguette(b);
+		daoSorc.update(s);
+		System.out.println("\nSorcier (id : " + s.getId() + ") : " + s.getCivilite().getLibelle() + " " + s.getPrenom()
+				+ " " + s.getNom() + ".\n" + s.getBaguette());
 
 	}
 
 	private static void detruireBaguette() {
-		// TODO Auto-generated method stub
-
+		for (Baguette b : daoB.selectAll()) {
+			System.out.println(b);
+		}
+		System.out.println("\nChoisis l'id de la baguette a detruire : ");
+		Integer choixB = clavierInt.nextInt();
+		Baguette b = daoB.selectById(choixB);
+		daoB.delete(b);
+		System.out.println("\nBaguette supprimée!");
 	}
 
 	private static void menuEleve() {
@@ -227,7 +291,43 @@ public class TestApp {
 	}
 
 	private static void ajoutEleve() {
-		// TODO Auto-generated method stub
+
+		System.out.print("Civilite ? " + EnumSet.allOf(Civilite.class));
+		String civilite = clavierStr.nextLine().toUpperCase();
+
+		System.out.print("Prenom ? ");
+		String prenom = clavierStr.nextLine().toLowerCase();
+
+		System.out.print("Nom ? ");
+		String nom = clavierStr.next();
+
+		//System.out.print("Date de naissance ? ");
+		// Date naissance = clavierDate.next
+
+		System.out.print("Patronus ? " + EnumSet.allOf(Patronus.class));
+		String patronus = clavierStr.nextLine().toUpperCase();
+
+		System.out.println("A-t-il une baguette définie ? oui/non");
+		String choix = clavierStr.nextLine();
+		Baguette baguette = new Baguette();
+		if (choix.equalsIgnoreCase("oui")) {
+			for (Baguette b : daoB.selectAll()) {
+				System.out.println(b);
+			}
+
+			System.out.println("\nQuelle est sa baguette (selectionner l'id d'une baguette)? ");
+			Integer choixB = clavierInt.nextInt();
+			 baguette = daoB.selectById(choixB);
+		}
+		System.out.println("\nFais-il (elle) partie de l'équipde de quidditch? oui/non");
+		String choixQ = clavierStr.nextLine();
+		boolean quidditch = (choixQ.equalsIgnoreCase("oui")) ? true : false;
+
+		Eleve e = new Eleve(Civilite.valueOf(civilite), prenom, nom, Patronus.valueOf(patronus), baguette, quidditch);
+
+		daoE.insert(e);
+		System.out.println(e.getCivilite().getLibelle() + " " + e.getPrenom() + " " + e.getNom()
+				+ " a bien ete insere dans la liste d'eleves");
 
 	}
 
