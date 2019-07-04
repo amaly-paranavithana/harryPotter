@@ -14,7 +14,7 @@ public class Sort {
 	private Integer id;
 	@Column(name = "nom")
 	private String nom;
-	@Column(name = "formule_&_Type_de_sort")
+	@Column(name = "InfosSort")
 	@Enumerated(EnumType.STRING)
 	private InfoSort infoSort;
 

@@ -26,11 +26,21 @@ public class Eleve extends Sorcier {
 		super(civilite, prenom, nom);
 	}
 
-
 	public Eleve(Civilite civilite, String prenom, String nom, Boolean quidditch) {
 		super(civilite, prenom, nom);
 		this.quidditch = quidditch;
 	}
+	
+	public Eleve(Civilite civilite, String prenom, String nom, Patronus patronus, Boolean quidditch) {
+		super(civilite, prenom, nom, patronus);
+		this.quidditch = quidditch;
+	}
+
+	public Eleve(Civilite civilite, String prenom, String nom, Patronus patronus, Baguette baguette,
+			Boolean quidditch) {
+		super(civilite, prenom, nom, patronus, baguette);
+		this.quidditch = quidditch;
+	}	
 
 	public Eleve(Integer id, Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus,
 			Baguette baguette, Maison maison, Boolean quidditch, List<Matiere> matieres) {

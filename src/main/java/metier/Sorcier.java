@@ -42,8 +42,24 @@ public class Sorcier {
 		this.prenom = prenom;
 		this.nom = nom;
 	}
-
 	
+	public Sorcier(Civilite civilite, String prenom, String nom, Patronus patronus) {
+		super();
+		this.civilite = civilite;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.patronus = patronus;
+	}
+
+	public Sorcier(Civilite civilite, String prenom, String nom, Patronus patronus, Baguette baguette) {
+		super();
+		this.civilite = civilite;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.patronus = patronus;
+		this.baguette = baguette;
+	}
+
 	public Sorcier(Integer id, Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus,
 			Baguette baguette) {
 		this.id = id;
