@@ -1,15 +1,26 @@
 package testApp;
 
+import java.util.EnumSet;
 import java.util.Scanner;
+
+import metier.Baguette;
+import metier.Bois;
+import metier.Coeur;
+import dao.DaoBaguette;
 
 public class TestApp {
 
 	public static void main(String[] args) {
-		menu();
+		menuBaguette();
 	}
+
+	static DaoBaguette daoB = new DaoBaguette();
 
 	static Scanner clavierStr = new Scanner(System.in);
 	static Scanner clavierInt = new Scanner(System.in);
+	static Scanner clavierDb = new Scanner(System.in);
+
+//faire un try catch pour la saisie d'un int
 
 	public static void accueil() {
 		String nom, mdp, motDePasse;
@@ -84,39 +95,105 @@ public class TestApp {
 
 	private static void menuBaguette() {
 		System.out.println(
-				"1. Créer une baguette \n2. Modifier une baguette \n3. Detruire une baguette \n4. Carte de gestion d'un sorcier \n5. Revenir a la premiere carte \6. Méfait accompli");
+				"1. Consulter la carte recensant toutes les baguettes existantes \n2. Créer une baguette \n3. Modifier une baguette \n4. Laisser une baguette choisir son sorcier \n5. Detruire une baguette \n6. Carte de gestion d'un sorcier \n7. Revenir a la premiere carte \n8. Méfait accompli");
 		switch (clavierInt.nextInt()) {
 		case 1:
-			creerBaguette();
+			annuaireBaguette();
 			menuBaguette();
 			break;
 		case 2:
-			modifierBaguette();
+			creerBaguette();
 			menuBaguette();
 			break;
 		case 3:
-			detruireBaguette();
+			modifierBaguette();
 			menuBaguette();
 			break;
 		case 4:
-			menuSorcier();
+			assignerBaguette();
+			menuBaguette();
 			break;
 		case 5:
-			menu();
+			detruireBaguette();
+			menuBaguette();
 			break;
 		case 6:
+			menuSorcier();
+			break;
+		case 7:
+			menu();
+			break;
+		case 8:
 			// Terminer
 		}
+	}
 
+	private static void annuaireBaguette() {
+		for (Baguette b : daoB.selectAll()) {
+			System.out.println(b);
+		}
+		System.out.println("\n");
 	}
 
 	private static void creerBaguette() {
-		// TODO Auto-generated method stub
+
+		System.out.println("Fabricant de baguette en herbe, choisis le type de bois que tu veux utiliser : \n"
+				+ EnumSet.allOf(Bois.class));
+		String type = clavierStr.nextLine().toUpperCase();
+
+		System.out.println("Choisis le materiau du coeur que tu veux utiliser : \n" + EnumSet.allOf(Coeur.class));
+		String materiau = clavierStr.nextLine().toUpperCase();
+
+		System.out.println("Quelle taille veux-tu donner à cette baguette? (Format a utiliser : 30,0) ");
+		Double taille = clavierDb.nextDouble();
+
+		Baguette b = new Baguette(Bois.valueOf(type), Coeur.valueOf(materiau), taille);
+		daoB.insert(b);
+		System.out.println("\nFélicitations !!! Tu as créés la baguette suivante : \n" + b.toString() + "\n");
 
 	}
 
 	private static void modifierBaguette() {
-		// TODO Auto-generated method stub
+
+		for (Baguette b : daoB.selectAll()) {
+			System.out.println(b);
+		}
+		System.out.println("\nChoisis l'id de la baguette à modifier : ");
+		Integer choix1 = clavierInt.nextInt();
+
+		Baguette b = daoB.selectById(choix1);
+
+		
+
+		do {
+			System.out.println("\nCette baguette est en bois de " + b.getBois().getType() + " avec un coeur en "
+					+ b.getCoeur().getMateriau() + ". Elle mesure " + b.getTaille()
+					+ " cm. \nSur quelle modification veux-tu travailler?? \n1. Son bois \n2. Son coeur \n3. Sa taille \n4. J'ai fini, voir les caracteristiques de la nouvelle baguette");
+
+			switch (clavierInt.nextInt()) {
+			case 1:
+				System.out.println("Choisis le type de bois a utiliser : \n" + EnumSet.allOf(Bois.class));
+				String type = clavierStr.nextLine().toUpperCase();
+				b.setBois(Bois.valueOf(type));
+				break;
+			case 2:
+				System.out.println("Choisis le materiau de coeur a utiliser : \n" + EnumSet.allOf(Coeur.class));
+				String materiau = clavierStr.nextLine().toUpperCase();
+				b.setCoeur(Coeur.valueOf(materiau));
+				break;
+			case 3:
+				System.out.println("Quelle taille veux-tu lui donner?");
+				Double taille = clavierDb.nextDouble();
+				b.setTaille(taille);
+				break;
+			}
+		} while (clavierInt.nextInt() != 4);
+
+		System.out.println("Tu as réussi !!! Voici la baguette obtenue : \n" + b.toString());
+
+	}
+
+	private static void assignerBaguette() {
 
 	}
 
@@ -254,7 +331,7 @@ public class TestApp {
 			menu();
 			break;
 		case 5:
-			//Terminer
+			// Terminer
 			break;
 		}
 	}
@@ -268,15 +345,15 @@ public class TestApp {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	private static void modifierMaison() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void menuMatiere() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

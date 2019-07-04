@@ -20,9 +20,6 @@ public class Baguette {
 	private Coeur coeur;
 	@Column(name="Taille")
 	private Double taille;
-	
-	@OneToOne(mappedBy="baguette")
-	private Sorcier sorcier;
 
 //Constructeur
 	

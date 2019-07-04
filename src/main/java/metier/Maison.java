@@ -17,15 +17,17 @@ public class Maison {
 	private Blason blason;
 
 	@OneToOne
+	@JoinColumn(name = "sorcier_id")
 	private Sorcier fondateur;
 
 	@OneToOne
+	@JoinColumn(name = "professeur_id")
 	private Professeur directeur;
 
 	private String fantome;
 	private Integer points;
 
-	@OneToMany(mappedBy = "maison")
+	@OneToMany
 	private List<Qualite> qualites = new ArrayList();
 
 	@OneToMany(mappedBy = "maison")
@@ -36,29 +38,19 @@ public class Maison {
 
 	}
 
-	public Maison(String nom, Blason animal, Blason couleurs, String fantome) {
+	public Maison(String nom, Blason blason, String fantome) {
 		super();
 		this.nom = nom;
-		this.blason = animal;
-		this.blason = couleurs;
+		this.blason = blason;;
 		this.fantome = fantome;
 	}
 
-	public Maison(String nom, Blason blason, Professeur directeur, String fantome) {
-		super();
-		this.nom = nom;
-		this.blason = blason;
-		this.directeur = directeur;
-		this.fantome = fantome;
-	}
-
-	public Maison(Integer id, String nom, Blason animal, Blason couleurs, Sorcier fondateur, Professeur directeur, String fantome,
+	public Maison(Integer id, String nom, Blason blason, Sorcier fondateur, Professeur directeur, String fantome,
 			Integer points, List<Qualite> qualites, List<Eleve> eleves) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.blason = animal;
-		this.blason = couleurs;
+		this.blason = blason;
 		this.fondateur = fondateur;
 		this.directeur = directeur;
 		this.fantome = fantome;
@@ -142,13 +134,14 @@ public class Maison {
 	}
 
 //ToString
-	
+
 	public String toString() {
-		return "Maison " + nom + " : \nblason : " + blason.getCouleurs() + " avec " + blason.getAnimal() + ", fondateur : " + fondateur + ", directeur : "
-				+ directeur + ", fantome : " + fantome + ", points : " + points + ", qualites : " + qualites + ", eleves : "
-				+ eleves + ".";
+		return "Maison (id : " + id + ") : " + nom + " : \nBLASON : " + blason.getCouleurs() + " AVEC " + blason.getAnimal()
+				+ ", FONDATEUR : " + fondateur.getPrenom() + " " + fondateur.getNom() + ", DIRECTEUR : "
+				+ directeur.getPrenom() + " " + directeur.getNom() + ", FANTOME : " + fantome + ", POINTS : " + points
+				+ "pts. \nLES ELEVES DE " + nom.toUpperCase() + " SONT CONNUS POUR ETRE : " + qualites + ".";
 	}
-	
+
 //HashCode & Equals
 
 	public int hashCode() {
@@ -165,7 +158,7 @@ public class Maison {
 		result = prime * result + ((qualites == null) ? 0 : qualites.hashCode());
 		return result;
 	}
-	
+
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

@@ -66,7 +66,7 @@ public class TestQualite {
 	public static void updateQualite() {
 		Qualite g1 = daoQ.selectById(1);
 		Maison g = daoM.selectById(1);
-		g1.setMaison(g);
+		
 		daoQ.update(g1);
 		System.out.println(daoQ.selectById(1));
 	}

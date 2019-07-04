@@ -14,31 +14,25 @@ public class Sort {
 	private Integer id;
 	@Column(name = "nom")
 	private String nom;
-	@Column(name = "formule")
+	@Column(name = "formule_&_Type_de_sort")
 	@Enumerated(EnumType.STRING)
 	private InfoSort infoSort;
-
-	@ManyToOne
-	private Matiere matiere;
 
 //Constructeur	
 	public Sort() {
 	}
 
-	public Sort(String nom, InfoSort formule, InfoSort type) {
+	public Sort(String nom, InfoSort infoSort) {
 		super();
 		this.nom = nom;
-		this.infoSort = formule;
-		this.infoSort = type;
+		this.infoSort = infoSort;
 	}
 
-	public Sort(Integer id, String nom, InfoSort formule, InfoSort type, Matiere matiere) {
+	public Sort(Integer id, String nom, InfoSort infoSort) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.infoSort = formule;
-		this.infoSort = type;
-		this.matiere = matiere;
+		this.infoSort = infoSort;
 	}
 
 	// Getters & Setters
@@ -67,17 +61,9 @@ public class Sort {
 		this.infoSort = infoSort;
 	}
 
-	public Matiere getMatiere() {
-		return matiere;
-	}
-
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
-	}
-
 //ToString
 	public String toString() {
-		return "Sort num. " + id + " : nom : " + nom + ", formule : " + infoSort.getFormule() + ", type de sort : " + infoSort.getType();
+		return "Sort num. " + id + " : NOM : " + nom + ", FORMULE : " + infoSort.getFormule() + ", TYPE DE SORT : " + infoSort.getType();
 	}
 
 //HashCode & Equals
@@ -87,7 +73,6 @@ public class Sort {
 		int result = 1;
 		result = prime * result + ((infoSort == null) ? 0 : infoSort.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((matiere == null) ? 0 : matiere.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((infoSort == null) ? 0 : infoSort.hashCode());
 		return result;
@@ -108,11 +93,6 @@ public class Sort {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (matiere == null) {
-			if (other.matiere != null)
-				return false;
-		} else if (!matiere.equals(other.matiere))
 			return false;
 		if (nom == null) {
 			if (other.nom != null)

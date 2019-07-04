@@ -8,15 +8,17 @@ import javax.persistence.*;
 @Entity
 public class Matiere {
 
+//Attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String intitule;
-
-	@OneToOne
+	
+	@OneToOne 
+    @JoinColumn(name="id_professeur") 
 	private Professeur professeur;
 
-	@OneToMany(mappedBy = "matiere")
+	@OneToMany
 	private List<Sort> sorts = new ArrayList();
 
 	@ManyToMany
@@ -32,16 +34,9 @@ public class Matiere {
 		this.intitule = intitule;
 	}
 
-	public Matiere(String intitule, Professeur professeur) {
-		super();
-		this.intitule = intitule;
-		this.professeur = professeur;
-	}
-
-	public Matiere(Integer id, String intitule, Professeur professeur, List<Sort> sorts) {
+	public Matiere(Integer id, String intitule, List<Sort> sorts) {
 		this.id = id;
 		this.intitule = intitule;
-		this.professeur = professeur;
 		this.sorts = sorts;
 	}
 
@@ -62,14 +57,6 @@ public class Matiere {
 		this.intitule = intitule;
 	}
 
-	public Professeur getProfesseur() {
-		return professeur;
-	}
-
-	public void setProfesseur(Professeur professeur) {
-		this.professeur = professeur;
-	}
-
 	public List<Sort> getSorts() {
 		return sorts;
 	}
@@ -80,7 +67,7 @@ public class Matiere {
 
 //ToString
 	public String toString() {
-		return "Matiere [id=" + id + ", intitule=" + intitule + ", professeur=" + professeur + ", sorts=" + sorts + "]";
+		return "Matiere (id : " + id + ") : NOM : " + intitule + ", SORTS : " + sorts + ".";
 	}
 
 //Hashcode & Equals
@@ -89,7 +76,6 @@ public class Matiere {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((intitule == null) ? 0 : intitule.hashCode());
-		result = prime * result + ((professeur == null) ? 0 : professeur.hashCode());
 		result = prime * result + ((sorts == null) ? 0 : sorts.hashCode());
 		return result;
 	}
@@ -111,11 +97,6 @@ public class Matiere {
 			if (other.intitule != null)
 				return false;
 		} else if (!intitule.equals(other.intitule))
-			return false;
-		if (professeur == null) {
-			if (other.professeur != null)
-				return false;
-		} else if (!professeur.equals(other.professeur))
 			return false;
 		if (sorts == null) {
 			if (other.sorts != null)

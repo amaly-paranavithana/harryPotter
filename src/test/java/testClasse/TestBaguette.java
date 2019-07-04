@@ -9,7 +9,7 @@ public class TestBaguette {
 
 	public static void main(String[] args) {
 		insertBaguette();
-		// selectBaguetteById();
+		//selectBaguetteById();
 		// selectAllBaguette();
 		// updateBaguette();
 		 //deleteBaguette();
@@ -21,7 +21,7 @@ public class TestBaguette {
 	public static void insertBaguette() {
 
 		Baguette hG = new Baguette(Bois.VIGNE, Coeur.DRAGON, 27.3);//hermione
-		Baguette rH = new Baguette(Bois.CHENE, null, 40.0);//hagrid
+		//Baguette rH = new Baguette(Bois.CHENE, null, 40.0);//hagrid
 		Baguette mM = new Baguette(Bois.SAPIN, Coeur.DRAGON, 23.75);//mcgonagall
 		Baguette rL = new Baguette(Bois.CYPRES, Coeur.LICORNE, 26.0);//Lupin
 		Baguette sT = new Baguette(Bois.NOISETIER, Coeur.LICORNE, 23.75);//Trelawney
@@ -32,17 +32,18 @@ public class TestBaguette {
 		Baguette nL = new Baguette(Bois.CERISIER, Coeur.LICORNE, 33.02);//Neville
 		Baguette dM = new Baguette(Bois.AUBEPINE, Coeur.LICORNE, 25.0);//Drago
 		Baguette pP = new Baguette(Bois.CHATAIGNIER, Coeur.DRAGON, 23.0);//pettigrow
-		Baguette lP = new Baguette(Bois.SAULE, null, 25.6);//Lily
-		Baguette jP = new Baguette(Bois.ACAJOU, null, 27.5);//james
-		Baguette gW = new Baguette(Bois.IF, null, null);//giny
+		//Baguette lP = new Baguette(Bois.SAULE, null, 25.6);//Lily
+		//Baguette jP = new Baguette(Bois.ACAJOU, null, 27.5);//james
+		//Baguette gW = new Baguette(Bois.IF, null, null);//giny
 		Baguette hP = new Baguette(Bois.HOUX, Coeur.PHENIX, 27.5);// harry
-		Baguette cW = new Baguette(Bois.FRENE, Coeur.LICORNE, null);//chrlie weasley
+		//Baguette cW = new Baguette(Bois.FRENE, Coeur.LICORNE, null);//chrlie weasley
 		Baguette rW = new Baguette(Bois.SAULE, Coeur.LICORNE, 35.56);//james
 		
 
-		daoB.insert(hG);daoB.insert(rH); daoB.insert(mM);daoB.insert(rL); daoB.insert(sT);daoB.insert(aD);
-		daoB.insert(cD);daoB.insert(tJ); daoB.insert(nL);daoB.insert(dM); daoB.insert(pP);daoB.insert(lP);
-		daoB.insert(jP);daoB.insert(gW); daoB.insert(hP);daoB.insert(cW); daoB.insert(rW);
+		daoB.insert(hG);daoB.insert(mM);daoB.insert(rL); daoB.insert(sT);daoB.insert(aD);
+		daoB.insert(cD);daoB.insert(tJ); daoB.insert(nL);daoB.insert(dM); daoB.insert(pP);
+		//daoB.insert(lP);daoB.insert(jP);daoB.insert(gW);daoB.insert(cW);daoB.insert(rH); 
+		daoB.insert(hP);daoB.insert(rW);
 		
 		//System.out.println(hG);
 

@@ -67,7 +67,7 @@ public class TestMatiere {
 	// ok
 	public static void updateMatiere() {
 		Matiere m1 = daoMat.selectById(2);
-		m1.setProfesseur(daoP.selectById(1));
+		
 		daoMat.update(m1);
 		System.out.println(daoMat.selectById(2));
 	}

@@ -1,7 +1,7 @@
 package metier;
 
 public enum Civilite {
-	M("Monsieur"), MME("Madame"), AUTRE("Autre"), NC("NC");
+	M("Monsieur"), MME("Madame"), NC("NC");
 
 // Attribut
 	private String libelle;

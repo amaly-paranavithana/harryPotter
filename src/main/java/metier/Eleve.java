@@ -22,22 +22,13 @@ public class Eleve extends Sorcier {
 
 	}
 	
-	public Eleve(Civilite civilite, String prenom, String nom, Maison maison) {
+	public Eleve(Civilite civilite, String prenom, String nom) {
 		super(civilite, prenom, nom);
-		this.maison = maison;
 	}
 
 
-	public Eleve(Civilite civilite, String prenom, String nom, Maison maison, Boolean quidditch) {
+	public Eleve(Civilite civilite, String prenom, String nom, Boolean quidditch) {
 		super(civilite, prenom, nom);
-		this.maison = maison;
-		this.quidditch = quidditch;
-	}
-
-	public Eleve(Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus, Maison maison,
-			Boolean quidditch) {
-		super(civilite, prenom, nom, anniversaire, patronus);
-		this.maison = maison;
 		this.quidditch = quidditch;
 	}
 
@@ -75,13 +66,15 @@ public class Eleve extends Sorcier {
 	}
 
 // ToString	@
-	public String toString() {
-		return getCivilite().getLibelle() + " " + getNom().toUpperCase() + " " + getPrenom() + " : Né(e) le : "
-				+ getNaissance() + ". Patronus : " + getPatronus().getForme() + ". \nBaguette : " + getBaguette()
-				+ ".\nAppatient à la maison " + maison + ". Joueur de quidditch : " + quidditch;
-	}
+
+		public String toString() {
+			return "Eleve (id de sorcier: " + getId() + ") : " + getCivilite().getLibelle() + " " + getPrenom().toLowerCase() + " "
+					+ getNom().toUpperCase() + ". NE(E) LE : " + getNaissance() + ". PATRONUS : " + getPatronus().getForme()
+					+ ". \n\tBAGUETTE : " + getBaguette().toString() + ".\nDE LA MAISON : " + maison.getNom() + ". JOUE AU QUIDDITCH : " + quidditch;
+		}
 
 // Hashcode & Equals
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();

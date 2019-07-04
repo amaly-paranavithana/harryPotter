@@ -21,10 +21,10 @@ public class TestMaison {
 	// ok
 	public static void insertMaison() {
 
-		Maison g = new Maison ("Gryffondor", Blason.GRYFFONDOR, daoP.selectById(1),  "Nick Quasi-Sans-Tete");
-		Maison sd = new Maison ("Serdaigle", Blason.SERDAIGLE, daoP.selectById(3), "La Dame Grise");
-		Maison p = new Maison ("Poufsouffle", Blason.POUFSOUFFLE, daoP.selectById(4), "Le Moine Gras");
-		Maison sp = new Maison ("Serpentard", Blason.SERPENTARD, daoP.selectById(2), "Le Baron Sanglant");
+		Maison g = new Maison ("Gryffondor", Blason.GRYFFONDOR,  "Nick Quasi-Sans-Tete");
+		Maison sd = new Maison ("Serdaigle", Blason.SERDAIGLE, "La Dame Grise");
+		Maison p = new Maison ("Poufsouffle", Blason.POUFSOUFFLE, "Le Moine Gras");
+		Maison sp = new Maison ("Serpentard", Blason.SERPENTARD, "Le Baron Sanglant");
 		daoM.insert(g);
 		daoM.insert(sd);
 		daoM.insert(p);

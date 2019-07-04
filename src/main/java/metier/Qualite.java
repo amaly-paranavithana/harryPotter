@@ -14,9 +14,6 @@ public class Qualite {
 	private Integer id;
 	private String nom;
 
-	@ManyToOne
-	private Maison maison;
-
 // Constructeur
 	public Qualite() {
 	}
@@ -26,17 +23,10 @@ public class Qualite {
 		this.nom = nom;
 	}
 
-	public Qualite(String nom, Maison maison) {
-		super();
-		this.nom = nom;
-		this.maison = maison;
-	}
-
-	public Qualite(Integer id, String nom, Maison maison) {
+	public Qualite(Integer id, String nom) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.maison = maison;
 	}
 
 //Getters & Setters
@@ -55,19 +45,6 @@ public class Qualite {
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	public Maison getMaison() {
-		return maison;
-	}
-
-	public void setMaison(Maison maison) {
-		this.maison = maison;
-	}
-
-	// ToString
-	public String toString() {
-		return maison.getNom() + " : " + nom;
 	}
 
 //Hashcode & Equals
@@ -99,5 +76,4 @@ public class Qualite {
 			return false;
 		return true;
 	}
-
 }

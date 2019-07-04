@@ -31,7 +31,7 @@ public class Sorcier {
 	@OneToOne
 	@JoinColumn(name = "baguette_id")
 	private Baguette baguette;
-
+	
 //Constructeur		
 	public Sorcier() {
 	}
@@ -43,22 +43,7 @@ public class Sorcier {
 		this.nom = nom;
 	}
 
-	public Sorcier(Civilite civilite, String prenom, String nom, Patronus patronus) {
-		super();
-		this.civilite = civilite;
-		this.prenom = prenom;
-		this.nom = nom;
-		this.patronus = patronus;
-	}
-
-	public Sorcier(Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus) {
-		this.civilite = civilite;
-		this.prenom = prenom;
-		this.nom = nom;
-		this.naissance = naissance;
-		this.patronus = patronus;
-	}
-
+	
 	public Sorcier(Integer id, Civilite civilite, String prenom, String nom, Date anniversaire, Patronus patronus,
 			Baguette baguette) {
 		this.id = id;
@@ -127,13 +112,14 @@ public class Sorcier {
 		this.baguette = baguette;
 	}
 
-//ToString
+//toString
 	public String toString() {
 		return "Sorcier (id : " + id + ") : " + civilite.getLibelle() + " " + prenom + " " + nom + ". Né(e) le : "
-				+ naissance + ". Patronus : " + patronus.getForme() + ". Baguette : " + baguette + "]";
+				+ naissance + ". Patronus : " + patronus.getForme() + ". \n\tBaguette : " + baguette.toString() + "]";
 	}
 
-	@Override
+//HashCode & Equals
+
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -147,7 +133,6 @@ public class Sorcier {
 		return result;
 	}
 
-//Hashcode & Egals
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
